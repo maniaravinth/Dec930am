@@ -1,0 +1,45 @@
+package org.mani.SelTest;
+
+import java.awt.AWTException;
+import java.awt.Desktop.Action;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Test {
+	
+
+	public static void main(String[] args) throws AWTException, InterruptedException {
+		System.setProperty("webdriver.chrome.driver","D:\\Selenium\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.toolsqa.com/automation-practice-table/");
+		List<WebElement> tRow=driver.findElements(By.tagName("th"));
+		for(WebElement x:tRow) {
+			
+			List<WebElement> tData=x.findElements(By.tagName("td"));
+			for(WebElement tDatas:tData) {
+				String dataElement=tDatas.getText();
+				if(dataElement.equals("Dubai"))
+				{
+					System.out.println(dataElement);
+				}
+			}
+		}
+		
+		
+
+		
+		
+		
+		
+	}
+}

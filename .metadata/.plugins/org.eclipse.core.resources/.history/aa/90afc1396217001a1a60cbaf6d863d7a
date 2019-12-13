@@ -1,0 +1,21 @@
+package org.mani.SelTest;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","D:\\Selenium\\chromedriver.exe" );
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		WebElement user=driver.findElement(By.xpath("//span[text()='Create an account']"));
+		String s=user.getText();
+		System.out.println(s);
+		
+		
+		
+}
+	}

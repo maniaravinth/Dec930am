@@ -1,0 +1,47 @@
+package org.mani.SelTest;
+
+import java.awt.AWTException;
+import java.awt.Desktop.Action;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Test {
+	
+
+	public static void main(String[] args) throws AWTException, InterruptedException {
+		System.setProperty("webdriver.chrome.driver","D:\\Selenium\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.snapdeal.com/");
+		WebElement text = driver.findElement(By.xpath("//input[@class='col-xs-20 searchformInput keyword']"));
+		text.sendKeys("iphone 6");
+		WebElement search = driver.findElement(By.xpath("//button[@class='searchformButton col-xs-4 rippleGrey']"));
+		search.click();
+		Thread.sleep(1000);
+		WebElement iphone = driver.findElement(By.xpath("//p[text()='Apple iphone 6 ( 64GB , 1 GB ) Gold']"));
+		iphone.click();
+		String par=driver.getWindowHandle();
+		Set<String> ch1 = driver.getWindowHandles();
+		WebElement cart = driver.findElement(By.xpath("//div[@class='mmm col-xs-6 btn btn-xl btn-theme-secondary rippleWhite buyLink']"));
+		cart.click();
+		Set<String> ch2 = driver.getWindowHandles();
+		
+		
+		
+		
+
+		
+		
+		
+		
+	}
+}

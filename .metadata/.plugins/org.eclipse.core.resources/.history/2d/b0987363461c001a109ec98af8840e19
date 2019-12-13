@@ -1,0 +1,46 @@
+package org.mani.SelTest;
+
+import java.awt.AWTException;
+import java.awt.Desktop.Action;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Test {
+
+	public static void main(String[] args) throws AWTException, InterruptedException {
+		System.setProperty("webdriver.chrome.driver","D:\\Selenium\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.flipkart.com/");
+		Thread.sleep(2000);
+		Alert a=driver.switchTo().alert();
+		a.dismiss();
+		WebElement text=driver.findElement(By.id("//input[@class='LM6RPg']"));
+		text.sendKeys("iphone 6");
+		WebElement search=driver.findElement(By.id("//button[@class='vh79eN']"));
+		search.click();
+		String par=driver.getWindowHandle();
+		Set<String> all=driver.getWindowHandles();
+		
+		for(String x:all)
+		{
+			if(!par.equals(x)) {
+				driver.switchTo().window(x);
+			}
+		}
+		WebElement c=driver.findElement(By.xpath("//button[@class='_2AkmmA _2Npkh4 _2kuvG8 _7UHT_c']"));
+		c.click();
+		
+		
+		
+	}
+}
